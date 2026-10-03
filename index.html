@@ -4,1055 +4,548 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>The Harbour — Cinematic Edition</title>
+    <title>THE HARBOUR — Cinematic Edition</title>
 
-    <meta
-        name="description"
-        content="The Harbour — A Digital Novel by Sabarish.P"
-    >
+    <meta name="description"
+          content="THE HARBOUR — A cinematic crime thriller digital novel by Sabarish.P">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Reading Progress -->
-    <div class="reading-progress" id="readingProgress"></div>
+<!-- LOADING SCREEN -->
+<div id="loader">
+    <div class="loader-logo">THE HARBOUR</div>
+    <div class="loader-line"></div>
+    <div class="loader-text">ENTERING THE HARBOUR</div>
+</div>
 
-    <!-- Atmospheric Background -->
-    <div class="background">
-        <div class="moon"></div>
-        <div class="fog fog-one"></div>
-        <div class="fog fog-two"></div>
-        <div class="particles"></div>
+
+<!-- NAVIGATION -->
+<header class="topbar">
+
+    <div class="brand">
+        <span>THE HARBOUR</span>
+        <small>CINEMATIC EDITION</small>
     </div>
 
-    <!-- Navigation -->
-    <header class="topbar">
+    <div class="chapter-indicator">
+        CHAPTER ONE
+    </div>
 
-        <div class="brand">
-            <span>THE HARBOUR</span>
-            <small>CINEMATIC EDITION</small>
+</header>
+
+
+<!-- PROGRESS -->
+<div class="progress-track">
+    <div id="progress"></div>
+</div>
+
+
+<!-- HERO -->
+<section class="hero scene-ocean">
+
+    <div class="ocean-noise"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            A DIGITAL CRIME THRILLER
         </div>
 
-        <div class="chapter-indicator">
-            CHAPTER ONE
+        <h1>
+            THE
+            <span>HARBOUR</span>
+        </h1>
+
+        <div class="hero-line"></div>
+
+        <p class="hero-subtitle">
+            DRUGS. GOLD. POWER. BLOOD.
+        </p>
+
+        <p class="hero-description">
+            Every harbour has a secret.
+            Some secrets should never reach the shore.
+        </p>
+
+        <button id="startReading">
+            ENTER THE STORY
+            <span>↓</span>
+        </button>
+
+    </div>
+
+    <div class="hero-bottom">
+        <span>CHAPTER ONE</span>
+        <span>THE BEGINNING</span>
+        <span>SCROLL TO ENTER</span>
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+<section class="cinematic-intro">
+
+    <div class="intro-content">
+
+        <div class="section-number">01</div>
+
+        <h2>
+            THE NIGHT
+            <span>BEGINS</span>
+        </h2>
+
+        <p>
+            Evening slowly disappeared over Tuticorin.
+            The harbour remained awake.
+        </p>
+
+        <p>
+            Ships moved through the darkness.
+            Containers disappeared into warehouses.
+            And somewhere between the waves and the shadows,
+            an illegal empire was moving.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- HARBOUR -->
+<section class="story-scene harbour-scene">
+
+    <div class="scene-image ocean-port"></div>
+
+    <div class="scene-overlay"></div>
+
+    <div class="story-card left">
+
+        <span class="scene-label">TUTICORIN HARBOUR</span>
+
+        <h2>
+            THE
+            <strong>SHIPMENT</strong>
+        </h2>
+
+        <p>
+            A heavily loaded lorry approached the harbour
+            checkpoint.
+        </p>
+
+        <p>
+            The police checked the vehicle.
+            Furniture filled the back.
+        </p>
+
+        <p>
+            Nothing appeared suspicious.
+        </p>
+
+        <div class="danger-line">
+            BUT THE FURNITURE WAS A LIE.
         </div>
 
-    </header>
+    </div>
 
+</section>
 
-    <!-- HERO -->
-    <main>
 
-        <section class="hero">
+<!-- DRUGS -->
+<section class="story-scene drugs-scene">
 
-            <div class="hero-overlay"></div>
+    <div class="scene-image drugs-image"></div>
 
-            <div class="hero-content reveal">
+    <div class="scene-overlay dark"></div>
 
-                <p class="eyebrow">
-                    A DIGITAL NOVEL
-                </p>
+    <div class="story-card right">
 
-                <h1>
-                    THE<br>
-                    HARBOUR
-                </h1>
+        <span class="scene-label red">CONTRABAND</span>
 
-                <div class="hero-line"></div>
+        <h2>
+            BENEATH
+            <strong>THE WOOD</strong>
+        </h2>
 
-                <p class="chapter-title">
-                    CHAPTER ONE — THE BEGINNING
-                </p>
+        <p>
+            Hidden inside sofas and beds were sealed packages.
+        </p>
 
-                <p class="author">
-                    BY SABARISH.P
-                </p>
+        <p>
+            Drugs.
+        </p>
 
-                <button
-                    class="begin-button"
-                    id="beginReading"
-                >
-                    BEGIN READING
-                    <span>↓</span>
-                </button>
+        <p>
+            The shipment was transferred from the lorry
+            into a waiting cargo ship.
+        </p>
 
-            </div>
-
-            <div class="scroll-hint">
-                SCROLL TO ENTER THE STORY
-            </div>
-
-        </section>
-
-
-        <!-- INTRO -->
-        <section class="story-intro section reveal">
-
-            <div class="section-number">
-                01
-            </div>
-
-            <div class="intro-content">
-
-                <p class="small-label">
-                    BEFORE THE STORY
-                </p>
-
-                <h2>
-                    Every harbour<br>
-                    hides a secret.
-                </h2>
-
-                <p>
-                    The sea remembers everything.
-                    The harbour remembers even more.
-                </p>
-
-                <p>
-                    Somewhere between the ships, the darkness,
-                    and the endless movement of cargo,
-                    a dangerous business is about to begin.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- SCENE 01 -->
-        <section class="cinematic-scene harbour-scene">
-
-            <div class="scene-visual">
-
-                <div class="scene-sky"></div>
-                <div class="scene-moon"></div>
-
-                <div class="harbour-lights">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <div class="truck">
-                    <div class="truck-cabin"></div>
-                    <div class="truck-body"></div>
-                    <div class="wheel wheel-one"></div>
-                    <div class="wheel wheel-two"></div>
-                </div>
-
-                <div class="road"></div>
-
-            </div>
-
-            <div class="scene-text reveal">
-
-                <span class="scene-label">
-                    THE HARBOUR
-                </span>
-
-                <h2>
-                    The night<br>
-                    was only beginning.
-                </h2>
-
-                <p>
-                    Evening had settled over Tuticorin.
-                </p>
-
-                <p>
-                    The sky was darkening as a heavily loaded
-                    lorry slowly approached the police checkpoint
-                    near the harbour.
-                </p>
-
-                <p>
-                    The police stopped the vehicle.
-                </p>
-
-                <p>
-                    They inspected the cargo carefully.
-                </p>
-
-                <p>
-                    Furniture.
-                </p>
-
-                <p>
-                    Sofas.
-                    Beds.
-                    Wooden frames.
-                </p>
-
-                <p>
-                    Nothing seemed suspicious.
-                </p>
-
-                <div class="dramatic-line">
-                    Or so they thought.
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- HIDDEN CARGO -->
-        <section class="dark-section reveal">
-
-            <div class="hidden-cargo">
-
-                <div class="cargo-image">
-
-                    <div class="sofa">
-                        <div class="sofa-top"></div>
-                        <div class="sofa-seat"></div>
-                        <div class="sofa-leg"></div>
-                    </div>
-
-                    <div class="hidden-package package-one"></div>
-                    <div class="hidden-package package-two"></div>
-                    <div class="hidden-package package-three"></div>
-
-                </div>
-
-                <div class="cargo-text">
-
-                    <span class="red-label">
-                        THE REAL CARGO
-                    </span>
-
-                    <h2>
-                        DRUGS.
-                    </h2>
-
-                    <p>
-                        Hidden beneath the furniture were packages
-                        containing illegal drugs.
-                    </p>
-
-                    <p>
-                        The lorry passed through the checkpoint
-                        and entered the harbour.
-                    </p>
-
-                    <p>
-                        Workers unloaded the furniture.
-                    </p>
-
-                    <p>
-                        But they were not interested in the furniture.
-                    </p>
-
-                    <p>
-                        The packages were quietly removed
-                        and transferred to a waiting ship.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- JACK -->
-        <section class="character-section jack-section">
-
-            <div class="character-bg"></div>
-
-            <div class="character-card reveal">
-
-                <div class="character-number">
-                    02
-                </div>
-
-                <span class="character-label">
-                    THE MAN BEHIND THE OPERATION
-                </span>
-
-                <h2>
-                    JACK<br>
-                    WILSON
-                </h2>
-
-                <div class="character-divider"></div>
-
-                <p>
-                    A black Rolls-Royce entered the harbour.
-                </p>
-
-                <p>
-                    Jack Wilson stepped out.
-                </p>
-
-                <p>
-                    Calm.
-                    Silent.
-                    In control.
-                </p>
-
-                <p>
-                    He was the man behind the illegal
-                    drug trade running through the harbour.
-                </p>
-
-                <p>
-                    To Jack, drugs were not an addiction.
-                </p>
-
-                <p>
-                    They were business.
-                </p>
-
-                <div class="quote">
-                    “Business was business.”
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- LOS ANGELES -->
-        <section class="city-section reveal">
-
-            <div class="city-overlay"></div>
-
-            <div class="city-content">
-
-                <span class="scene-label">
-                    LOS ANGELES
-                </span>
-
-                <h2>
-                    Another shipment.<br>
-                    Another empire.
-                </h2>
-
-                <p>
-                    Thousands of kilometres away,
-                    the shipment finally arrived.
-                </p>
-
-                <p>
-                    Gold was being prepared too.
-                </p>
-
-                <p>
-                    And waiting for it was Daniel Carter.
-                </p>
-
-                <p>
-                    Jack's childhood friend.
-                    His business partner.
-                </p>
-
-                <p>
-                    Unlike Jack, Daniel enjoyed drugs,
-                    alcohol, and the dangerous lifestyle
-                    that came with their business.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- WRONG DELIVERY -->
-        <section class="chapter-section reveal">
-
-            <div class="chapter-heading">
-
-                <span>
-                    CHAPTER MOMENT
-                </span>
-
-                <h2>
-                    THE WRONG<br>
-                    DELIVERY
-                </h2>
-
-            </div>
-
-            <div class="story-copy">
-
-                <p>
-                    Ryan was waiting for an expensive laptop
-                    he had ordered online.
-                </p>
-
-                <p>
-                    The delivery was late.
-                </p>
-
-                <p>
-                    Very late.
-                </p>
-
-                <p>
-                    He had no idea that his package
-                    was about to become part of something
-                    far more dangerous.
-                </p>
-
-                <div class="delivery-warning">
-                    <span>DELIVERY STATUS</span>
-                    <strong>DELAYED</strong>
-                </div>
-
-                <p>
-                    Jack's drug shipment was being followed
-                    by the police.
-                </p>
-
-                <p>
-                    Jack ordered his men to switch containers
-                    with a legitimate online-products lorry.
-                </p>
-
-                <p>
-                    The driver saw everything.
-                </p>
-
-                <p class="danger-text">
-                    He could not be allowed to talk.
-                </p>
-
-                <p>
-                    The original drug lorry was burned.
-                </p>
-
-                <p>
-                    The legitimate delivery vehicle now carried
-                    the drugs.
-                </p>
-
-                <p>
-                    And inside that vehicle was Ryan's laptop.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- TWO WEEKS -->
-        <section class="time-section reveal">
-
-            <div class="time-number">
-                2
-            </div>
-
-            <div>
-                <span>
-                    WEEKS LATER
-                </span>
-
-                <h2>
-                    Ryan was still waiting.
-                </h2>
-
-                <p>
-                    But waiting was no longer enough.
-                </p>
-
-                <p>
-                    Ryan began investigating.
-                </p>
-
-                <p>
-                    CCTV footage showed the delivery lorry
-                    entering the harbour.
-                </p>
-
-                <p>
-                    It never left.
-                </p>
-
-                <div class="cctv-box">
-                    <div class="cctv-top">
-                        CAMERA 07
-                    </div>
-
-                    <div class="cctv-screen">
-                        HARBOUR
-                        <br>
-                        NO EXIT RECORDED
-                    </div>
-                </div>
-
-                <p>
-                    Ryan was from Tuticorin.
-                </p>
-
-                <p>
-                    He cared about his hometown.
-                </p>
-
-                <p>
-                    Something was wrong.
-                </p>
-
-                <p class="highlight">
-                    He decided to investigate the harbour.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- INFILTRATION -->
-        <section class="infiltration-section">
-
-            <div class="infiltration-bg"></div>
-
-            <div class="infiltration-content reveal">
-
-                <span class="scene-label">
-                    THE INFILTRATION
-                </span>
-
-                <h2>
-                    Inside the ship.
-                </h2>
-
-                <p>
-                    Ryan secretly entered a ship.
-                </p>
-
-                <p>
-                    He hid inside a container filled
-                    with the very cargo he was searching for.
-                </p>
-
-                <p>
-                    Hours passed.
-                </p>
-
-                <p>
-                    Finally, the container opened.
-                </p>
-
-                <p>
-                    A bodyguard discovered him.
-                </p>
-
-                <div class="fight-line">
-                    Ryan had only one choice.
-                </div>
-
-                <p>
-                    Fight.
-                </p>
-
-                <p>
-                    Ryan defeated the bodyguard,
-                    took his uniform and mask,
-                    and disappeared into the operation.
-                </p>
-
-                <p class="highlight">
-                    Now he needed to find the people behind it.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- DOCUMENTS -->
-        <section class="documents-section reveal">
-
-            <div class="document-visual">
-
-                <div class="document-paper">
-                    <span>CONFIDENTIAL</span>
-                    <strong>SHIPMENT RECORD</strong>
-                    <small>DATE / LOCATION / CARGO</small>
-                    <small>AUTHORIZED PERSONNEL ONLY</small>
-                </div>
-
-            </div>
-
-            <div class="document-text">
-
-                <span class="scene-label">
-                    LOS ANGELES
-                </span>
-
-                <h2>
-                    The documents.
-                </h2>
-
-                <p>
-                    Ryan followed the information
-                    to Daniel's residence.
-                </p>
-
-                <p>
-                    He overheard Daniel talking.
-                </p>
-
-                <p>
-                    The documents were in the wardrobe.
-                </p>
-
-                <p>
-                    Ryan entered quietly.
-                </p>
-
-                <p>
-                    He found them.
-                </p>
-
-                <p>
-                    And took them.
-                </p>
-
-                <p class="danger-text">
-                    Jack realized what had happened.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- CHASE -->
-        <section class="chase-section">
-
-            <div class="chase-sky"></div>
-
-            <div class="chase-title reveal">
-
-                <span>
-                    THE CHASE
-                </span>
-
-                <h2>
-                    RUN.
-                </h2>
-
-            </div>
-
-            <div class="vehicle vehicle-bike"></div>
-            <div class="vehicle vehicle-car"></div>
-
-            <div class="chase-copy reveal">
-
-                <p>
-                    Ryan escaped on a motorcycle.
-                </p>
-
-                <p>
-                    Daniel followed in a BMW.
-                </p>
-
-                <p>
-                    Jack followed on another motorcycle.
-                </p>
-
-                <p>
-                    Daniel was stopped by a narrow road.
-                </p>
-
-                <p>
-                    Jack continued through the rooftops.
-                </p>
-
-                <p>
-                    He found Ryan.
-                </p>
-
-                <div class="gunshot">
-                    BANG.
-                </div>
-
-                <p>
-                    Ryan was shot in the leg.
-                </p>
-
-                <p>
-                    A bus crossed between them.
-                </p>
-
-                <p class="highlight">
-                    Ryan disappeared.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- RETURN -->
-        <section class="return-section reveal">
-
-            <div class="return-number">
-                03
-            </div>
-
-            <div class="return-content">
-
-                <span>
-                    THE RETURN
-                </span>
-
-                <h2>
-                    Back to India.
-                </h2>
-
-                <p>
-                    Ryan returned to India
-                    with the stolen documents.
-                </p>
-
-                <p>
-                    He handed them over to the police.
-                </p>
-
-                <p>
-                    The documents revealed the date,
-                    location and shipment details.
-                </p>
-
-                <p>
-                    The police finally had enough information
-                    to plan an arrest.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- TRAP -->
-        <section class="trap-section">
-
-            <div class="trap-bg"></div>
-
-            <div class="trap-content reveal">
-
-                <span class="scene-label">
-                    THE TRAP
-                </span>
-
-                <h2>
-                    Everything<br>
-                    was ready.
-                </h2>
-
-                <p>
-                    Ryan and the police waited inside the harbour.
-                </p>
-
-                <p>
-                    A truck arrived.
-                </p>
-
-                <p>
-                    The container appeared empty.
-                </p>
-
-                <p>
-                    Then someone stepped out.
-                </p>
-
-                <h3>
-                    MICHAEL BROOKS
-                </h3>
-
-                <p>
-                    He was holding a shotgun.
-                </p>
-
-                <p>
-                    Armed men surrounded the area.
-                </p>
-
-                <div class="gunshot big">
-                    BANG!
-                </div>
-
-                <p>
-                    Chaos exploded across the harbour.
-                </p>
-
-                <p>
-                    Michael shot a police officer.
-                </p>
-
-                <p>
-                    Ryan fought back.
-                </p>
-
-                <p>
-                    The fight became brutal.
-                </p>
-
-                <p>
-                    Finally, Ryan killed Michael.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- FINAL CONFRONTATION -->
-        <section class="confrontation-section reveal">
-
-            <div class="confrontation-overlay"></div>
-
-            <div class="confrontation-content">
-
-                <span class="red-label">
-                    FINAL CONFRONTATION
-                </span>
-
-                <h2>
-                    JACK & DANIEL
-                </h2>
-
-                <p>
-                    Jack and Daniel arrived.
-                </p>
-
-                <p>
-                    Daniel was drunk.
-                </p>
-
-                <p>
-                    Ryan kicked him aside.
-                </p>
-
-                <p>
-                    Jack tried to fight back.
-                </p>
-
-                <p class="danger-text">
-                    Ryan shot Jack.
-                </p>
-
-                <p>
-                    Jack was injured.
-                </p>
-
-                <p>
-                    But he survived.
-                </p>
-
-                <p>
-                    Ryan overpowered both men.
-                </p>
-
-                <p>
-                    He tied them to a small boat.
-                </p>
-
-                <p>
-                    Then he pushed the boat into the sea.
-                </p>
-
-                <p class="highlight">
-                    Ryan believed they were gone.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- THE CALL -->
-        <section class="call-section">
-
-            <div class="phone-glow"></div>
-
-            <div class="call-content reveal">
-
-                <span class="scene-label">
-                    DAYS LATER
-                </span>
-
-                <h2>
-                    THE CALL
-                </h2>
-
-                <div class="phone">
-
-                    <div class="phone-screen">
-
-                        <span>
-                            UNKNOWN NUMBER
-                        </span>
-
-                        <strong>
-                            INCOMING CALL
-                        </strong>
-
-                    </div>
-
-                </div>
-
-                <p>
-                    Ryan's phone suddenly rang.
-                </p>
-
-                <p>
-                    The number was unknown.
-                </p>
-
-                <p>
-                    He answered.
-                </p>
-
-                <div class="voice">
-                    JACK'S VOICE
-                </div>
-
-                <p>
-                    It was Jack.
-                </p>
-
-                <p>
-                    Alive.
-                </p>
-
-                <p>
-                    A video appeared on the screen.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- BURNING FOREST -->
-        <section class="forest-section">
-
-            <div class="fire">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <div class="forest-content reveal">
-
-                <span class="red-label">
-                    THE TRUTH
-                </span>
-
-                <h2>
-                    THEY WERE<br>
-                    ALIVE.
-                </h2>
-
-                <p>
-                    Jack and Daniel were standing
-                    inside a burning forest.
-                </p>
-
-                <p>
-                    Hundreds of dead men surrounded them.
-                </p>
-
-                <p>
-                    Blood covered their faces.
-                </p>
-
-                <p>
-                    Jack looked directly into the camera.
-                </p>
-
-                <div class="final-dialogue">
-                    “We will be back to kill you.”
-                </div>
-
-                <p>
-                    The call ended.
-                </p>
-
-                <p>
-                    Ryan stood frozen.
-                </p>
-
-                <p>
-                    The screen went black.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- END -->
-        <section class="ending">
-
-            <div class="ending-fire"></div>
-
-            <div class="ending-content reveal">
-
-                <p>
-                    FIRE STILL BURNED.
-                </p>
-
-                <h2>
-                    JACK<br>
-                    WAS<br>
-                    STILL<br>
-                    ALIVE.
-                </h2>
-
-                <div class="ending-line"></div>
-
-                <p class="to-be-continued">
-                    TO BE CONTINUED...
-                </p>
-
-                <p class="author-final">
-                    — BY SABARISH.P
-                </p>
-
-                <p class="department">
-                    FIRST YEAR IT DEPARTMENT
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <div>
-            THE HARBOUR
+        <div class="red-warning">
+            THIS WAS NOT A DELIVERY.
+            <br>
+            IT WAS AN OPERATION.
         </div>
 
-        <span>
-            A DIGITAL NOVEL
+    </div>
+
+</section>
+
+
+<!-- SHIP -->
+<section class="full-visual ship-section">
+
+    <div class="ship-background"></div>
+
+    <div class="ship-content">
+
+        <span class="scene-label">THE HARBOUR • 11:47 PM</span>
+
+        <h2>
+            THE SHIP
+            <span>SAILED</span>
+        </h2>
+
+        <p>
+            Hundreds of containers.
+            One hidden shipment.
+            And enough evidence to destroy an empire.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- GOLD -->
+<section class="story-scene gold-scene">
+
+    <div class="scene-image gold-image"></div>
+
+    <div class="scene-overlay"></div>
+
+    <div class="story-card left">
+
+        <span class="scene-label gold-label">
+            LOS ANGELES
         </span>
 
-    </footer>
+        <h2>
+            ANOTHER
+            <strong>BUSINESS</strong>
+        </h2>
+
+        <p>
+            Drugs were only one part of the operation.
+        </p>
+
+        <p>
+            Another shipment was being prepared.
+        </p>
+
+        <p class="gold-text">
+            GOLD.
+        </p>
+
+        <p>
+            Millions in stolen gold waited inside another
+            network of containers.
+        </p>
+
+    </div>
+
+</section>
 
 
-    <script src="script.js"></script>
+<!-- JACK -->
+<section class="character-scene jack-scene">
+
+    <div class="character-background"></div>
+
+    <div class="character-content">
+
+        <span class="scene-label red">
+            JACK WILSON
+        </span>
+
+        <h2>
+            THE MAN
+            <span>BEHIND IT</span>
+        </h2>
+
+        <p>
+            Jack Wilson had built his business around the harbour.
+        </p>
+
+        <p>
+            He never consumed drugs.
+            Never drank.
+            Never smoked.
+        </p>
+
+        <p>
+            He simply sold everything.
+        </p>
+
+        <div class="character-quote">
+            "TO HIM, CRIME WAS BUSINESS."
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WRONG DELIVERY -->
+<section class="full-visual delivery-section">
+
+    <div class="delivery-background"></div>
+
+    <div class="scene-vignette"></div>
+
+    <div class="delivery-content">
+
+        <span class="scene-label">
+            TWO WEEKS LATER
+        </span>
+
+        <h2>
+            THE WRONG
+            <span>DELIVERY</span>
+        </h2>
+
+        <p>
+            Ryan was waiting for an expensive laptop.
+        </p>
+
+        <p>
+            The delivery never arrived.
+        </p>
+
+        <div class="blood-streak"></div>
+
+        <p class="danger-text">
+            SOMEONE HAD CHANGED THE TRUCK.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CCTV -->
+<section class="cctv-section">
+
+    <div class="cctv-header">
+        <span>CAMERA 07</span>
+        <span>HARBOUR SECURITY</span>
+        <span>02:13:47 AM</span>
+    </div>
+
+    <div class="cctv-screen">
+
+        <div class="cctv-grid"></div>
+
+        <div class="cctv-truck">
+            <div class="truck-body"></div>
+            <div class="truck-cabin"></div>
+            <div class="wheel wheel-one"></div>
+            <div class="wheel wheel-two"></div>
+        </div>
+
+        <div class="cctv-text">
+            SIGNAL LOST
+        </div>
+
+    </div>
+
+    <div class="cctv-caption">
+        THE TRUCK ENTERED THE HARBOUR.
+        <strong>IT NEVER LEFT.</strong>
+    </div>
+
+</section>
+
+
+<!-- RYAN -->
+<section class="character-scene ryan-scene">
+
+    <div class="ryan-background"></div>
+
+    <div class="character-content right-character">
+
+        <span class="scene-label">
+            RYAN
+        </span>
+
+        <h2>
+            HE WANTED
+            <span>THE TRUTH</span>
+        </h2>
+
+        <p>
+            Ryan knew something was wrong.
+        </p>
+
+        <p>
+            He entered the harbour searching for answers.
+        </p>
+
+        <p>
+            Instead, he discovered something much bigger.
+        </p>
+
+        <div class="character-quote">
+            "THIS ISN'T JUST A HARBOUR."
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HORROR OCEAN -->
+<section class="horror-ocean">
+
+    <div class="underwater"></div>
+
+    <div class="horror-content">
+
+        <div class="floating-particle"></div>
+
+        <span>BELOW THE SURFACE</span>
+
+        <h2>
+            SOME THINGS
+            <strong>NEVER SURFACE.</strong>
+        </h2>
+
+        <p>
+            Containers disappear beneath the waves.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONFRONTATION -->
+<section class="blood-scene">
+
+    <div class="blood-background"></div>
+
+    <div class="blood-overlay"></div>
+
+    <div class="blood-content">
+
+        <span class="scene-label red">
+            THE FINAL CONFRONTATION
+        </span>
+
+        <h2>
+            THE
+            <span>TRAP</span>
+        </h2>
+
+        <p>
+            Gunfire shattered the silence.
+        </p>
+
+        <p>
+            Men fell.
+            Blood covered the harbour floor.
+        </p>
+
+        <p>
+            Ryan fought for his life.
+        </p>
+
+        <div class="impact-line">
+            EVERY CHOICE CREATES A CONSEQUENCE.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FIRE -->
+<section class="fire-scene">
+
+    <div class="fire-background"></div>
+
+    <div class="fire-content">
+
+        <span>THE CALL</span>
+
+        <h2>
+            WE WILL
+            <strong>BE BACK.</strong>
+        </h2>
+
+        <p>
+            Days later, Ryan received an unknown call.
+        </p>
+
+        <p>
+            Jack's voice came through the phone.
+        </p>
+
+        <div class="phone-line">
+            "WE WILL BE BACK TO KILL YOU."
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- END -->
+<section class="ending">
+
+    <div class="ending-ocean"></div>
+
+    <div class="ending-content">
+
+        <div class="anchor">⚓</div>
+
+        <h2>
+            TO BE
+            <span>CONTINUED...</span>
+        </h2>
+
+        <div class="ending-line"></div>
+
+        <p>
+            THE HARBOUR
+        </p>
+
+        <p>
+            By Sabarish.P
+        </p>
+
+        <p class="department">
+            FIRST YEAR IT DEPARTMENT
+        </p>
+
+        <div class="ending-warning">
+            SOME SECRETS BELONG TO THE SEA.
+        </div>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
