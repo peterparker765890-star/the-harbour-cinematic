@@ -1,776 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>THE HARBOUR — Chapter Two</title>
+    <title>THE HARBOUR — Chapter Two</title>
 
-<meta name="description"
-content="The Harbour — Chapter Two: The Return. A cinematic crime thriller by Sabarish.P.">
+    <meta
+        name="description"
+        content="THE HARBOUR — Chapter Two: The Return. A cinematic crime thriller by Sabarish.P."
+    >
 
-<style>
-
-/* =========================================================
-   THE HARBOUR — CINEMATIC CHAPTER TWO
-   ========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
-
-:root{
-    --red:#d20f25;
-    --dark-red:#650713;
-    --black:#030405;
-    --white:#f5f5f5;
-    --muted:#a8a8a8;
-    --gold:#c8a96b;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-    background:#000;
-}
-
-body{
-    background:#000;
-    color:white;
-    font-family:Inter,Arial,sans-serif;
-    overflow-x:hidden;
-}
-
-/* ================= LOADER ================= */
-
-.loader{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    background:#020202;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    transition:opacity 1s ease,visibility 1s ease;
-}
-
-.loader.hide{
-    opacity:0;
-    visibility:hidden;
-}
-
-.loader-inner{
-    text-align:center;
-}
-
-.loader-small{
-    font-size:10px;
-    letter-spacing:7px;
-    color:#777;
-    margin-bottom:18px;
-}
-
-.loader-title{
-    font-family:Cinzel,serif;
-    font-size:clamp(34px,9vw,90px);
-    letter-spacing:10px;
-    color:#fff;
-}
-
-.loader-line{
-    width:0;
-    height:1px;
-    background:#b5162a;
-    margin:22px auto 0;
-    animation:loadLine 2s ease forwards;
-}
-
-@keyframes loadLine{
-    to{width:220px;}
-}
-
-/* ================= TOP UI ================= */
-
-.topbar{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:1000;
-    height:64px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 28px;
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,.8),
-        transparent
-    );
-    pointer-events:none;
-}
-
-.brand{
-    font-family:Cinzel,serif;
-    letter-spacing:4px;
-    font-size:12px;
-}
-
-.chapter-tag{
-    font-size:9px;
-    letter-spacing:3px;
-    color:#aaa;
-}
-
-.progress{
-    position:fixed;
-    top:0;
-    left:0;
-    height:2px;
-    width:0%;
-    background:#d71931;
-    z-index:3000;
-}
-
-/* ================= GLOBAL SCENE ================= */
-
-.scene{
-    position:relative;
-    min-height:100vh;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.scene::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 25%,
-            rgba(0,0,0,.25) 55%,
-            rgba(0,0,0,.9) 100%
-        );
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:100svh;
-    background:
-        linear-gradient(
-            rgba(0,0,0,.15),
-            rgba(0,0,0,.85)
-        ),
-        url("assets/ch2-ocean.jpg") center/cover,
-        radial-gradient(
-            circle at 50% 40%,
-            #253d4b,
-            #071016 50%,
-            #000 85%
-        );
-}
-
-.hero-content{
-    position:relative;
-    z-index:5;
-    width:min(1000px,90%);
-    text-align:center;
-}
-
-.chapter-number{
-    font-size:11px;
-    letter-spacing:8px;
-    color:#aaa;
-    margin-bottom:22px;
-    opacity:.8;
-}
-
-.hero h1{
-    font-family:Cinzel,serif;
-    font-size:clamp(48px,11vw,130px);
-    font-weight:600;
-    letter-spacing:12px;
-    line-height:.95;
-    text-shadow:
-        0 0 30px rgba(255,255,255,.08),
-        0 15px 50px #000;
-}
-
-.hero-sub{
-    margin-top:30px;
-    font-size:11px;
-    letter-spacing:5px;
-    color:#aaa;
-}
-
-.scroll{
-    position:absolute;
-    bottom:35px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:8px;
-    letter-spacing:5px;
-    color:#888;
-    z-index:10;
-}
-
-.scroll::after{
-    content:"";
-    display:block;
-    width:1px;
-    height:50px;
-    background:#777;
-    margin:12px auto 0;
-}
-
-/* ================= TEXT SECTIONS ================= */
-
-.story{
-    position:relative;
-    z-index:10;
-    width:min(780px,88%);
-    padding:130px 0;
-}
-
-.story.center{
-    text-align:center;
-}
-
-.kicker{
-    color:#c01a2e;
-    letter-spacing:6px;
-    font-size:9px;
-    margin-bottom:22px;
-    text-transform:uppercase;
-}
-
-.story h2{
-    font-family:Cinzel,serif;
-    font-size:clamp(32px,6vw,65px);
-    line-height:1.1;
-    margin-bottom:35px;
-    font-weight:500;
-}
-
-.story p{
-    color:#c7c7c7;
-    font-size:clamp(15px,2vw,18px);
-    line-height:2;
-    margin-bottom:24px;
-    font-weight:300;
-}
-
-.story p strong{
-    color:white;
-    font-weight:500;
-}
-
-.quote{
-    font-family:Cinzel,serif;
-    font-size:clamp(24px,5vw,50px);
-    line-height:1.35;
-    color:#eee;
-    margin:60px 0;
-}
-
-/* ================= ATMOSPHERE ================= */
-
-.dark{
-    background:
-        radial-gradient(
-            circle at 50% 30%,
-            #12161a,
-            #030405 65%
-        );
-}
-
-.red{
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(105,0,12,.45),
-            #020202 65%
-        );
-}
-
-/* ================= HARBOUR ================= */
-
-.harbour{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.3),
-            rgba(0,0,0,.9)
-        ),
-        url("assets/ch2-harbour.jpg") center/cover,
-        linear-gradient(#15242b,#020405);
-}
-
-.harbour .story{
-    text-shadow:0 3px 20px #000;
-}
-
-/* ================= RAIN ================= */
-
-.rain{
-    position:absolute;
-    inset:0;
-    z-index:3;
-    pointer-events:none;
-    opacity:.35;
-    background-image:
-        repeating-linear-gradient(
-            105deg,
-            transparent 0px,
-            transparent 12px,
-            rgba(255,255,255,.13) 13px,
-            transparent 14px
-        );
-    background-size:80px 80px;
-    animation:rainMove .5s linear infinite;
-}
-
-@keyframes rainMove{
-    from{background-position:0 0;}
-    to{background-position:-40px 80px;}
-}
-
-/* ================= CONFRONTATION ================= */
-
-.confrontation{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.3),
-            rgba(0,0,0,.8)
-        ),
-        url("assets/ch2-confrontation.jpg") center/cover,
-        radial-gradient(circle,#242424,#030303 75%);
-}
-
-.fight-text{
-    font-family:Cinzel,serif;
-    font-size:clamp(40px,9vw,110px);
-    letter-spacing:8px;
-    text-align:center;
-}
-
-/* ================= MICHAEL REVEAL ================= */
-
-.reveal{
-    min-height:100svh;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.9),
-            rgba(0,0,0,.2),
-            rgba(0,0,0,.9)
-        ),
-        url("assets/ch2-michael.jpg") center/cover,
-        #050505;
-}
-
-.reveal-name{
-    font-family:Cinzel,serif;
-    font-size:clamp(42px,10vw,120px);
-    letter-spacing:10px;
-    opacity:0;
-    transform:translateY(30px);
-    transition:1.5s ease;
-}
-
-.visible .reveal-name{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* ================= BLOOD ================= */
-
-.blood{
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(130,0,12,.5),
-            transparent 50%
-        ),
-        url("assets/ch2-blood.jpg") center/cover,
-        #050000;
-}
-
-.blood-overlay{
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(
-            ellipse at center,
-            transparent 25%,
-            rgba(80,0,0,.45)
-        );
-}
-
-/* ================= BOAT / OCEAN ================= */
-
-.ocean{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.15),
-            rgba(0,0,0,.85)
-        ),
-        url("assets/ch2-ocean-night.jpg") center/cover,
-        linear-gradient(
-            #061722,
-            #010304
-        );
-}
-
-.boat-light{
-    position:absolute;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#eee;
-    box-shadow:
-        0 0 15px #fff,
-        0 0 40px #9dcfff;
-    left:50%;
-    bottom:28%;
-    animation:boat 5s ease-in-out infinite;
-}
-
-@keyframes boat{
-    0%,100%{transform:translate(-50%,0);}
-    50%{transform:translate(-50%,-10px);}
-}
-
-/* ================= PHONE CALL ================= */
-
-.call{
-    background:
-        linear-gradient(
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.95)
-        ),
-        url("assets/ch2-burning-forest.jpg") center/cover,
-        #090000;
-}
-
-.phone{
-    position:relative;
-    z-index:10;
-    width:min(330px,80vw);
-    min-height:560px;
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:35px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(30,30,30,.9),
-            rgba(2,2,2,.96)
-        );
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.9),
-        0 0 60px rgba(150,0,0,.15);
-    padding:35px 22px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.phone-top{
-    text-align:center;
-    font-size:9px;
-    color:#666;
-    letter-spacing:4px;
-}
-
-.caller{
-    text-align:center;
-}
-
-.caller-circle{
-    width:90px;
-    height:90px;
-    margin:auto;
-    border-radius:50%;
-    background:
-        url("assets/jack.jpg") center/cover,
-        #222;
-    border:1px solid #555;
-    box-shadow:0 0 35px rgba(180,0,0,.25);
-}
-
-.caller-name{
-    font-family:Cinzel,serif;
-    font-size:24px;
-    margin-top:20px;
-}
-
-.call-status{
-    color:#888;
-    font-size:10px;
-    letter-spacing:3px;
-    margin-top:8px;
-}
-
-.wave{
-    height:40px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:3px;
-}
-
-.wave span{
-    width:2px;
-    height:10px;
-    background:#b7172d;
-    animation:wave .7s ease-in-out infinite alternate;
-}
-
-.wave span:nth-child(2){animation-delay:.1s}
-.wave span:nth-child(3){animation-delay:.2s}
-.wave span:nth-child(4){animation-delay:.3s}
-.wave span:nth-child(5){animation-delay:.4s}
-.wave span:nth-child(6){animation-delay:.2s}
-.wave span:nth-child(7){animation-delay:.1s}
-
-@keyframes wave{
-    to{height:35px;}
-}
-
-/* ================= DAVID REVEAL ================= */
-
-.final-reveal{
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.96),
-            rgba(0,0,0,.3),
-            rgba(0,0,0,.95)
-        ),
-        url("assets/david-harris.jpg") center/cover,
-        #030303;
-}
-
-.david{
-    text-align:center;
-    position:relative;
-    z-index:10;
-}
-
-.david-small{
-    color:#888;
-    font-size:9px;
-    letter-spacing:8px;
-    margin-bottom:25px;
-}
-
-.david h2{
-    font-family:Cinzel,serif;
-    font-size:clamp(40px,10vw,115px);
-    letter-spacing:10px;
-    font-weight:500;
-    text-shadow:0 0 50px rgba(0,0,0,.9);
-}
-
-.david-line{
-    width:0;
-    height:1px;
-    background:#b5152a;
-    margin:30px auto;
-    transition:1.8s ease;
-}
-
-.visible .david-line{
-    width:220px;
-}
-
-.david-desc{
-    color:#aaa;
-    font-size:11px;
-    letter-spacing:4px;
-}
-
-/* ================= FINAL ================= */
-
-.ending{
-    min-height:100svh;
-    background:#000;
-    text-align:center;
-}
-
-.ending-content{
-    position:relative;
-    z-index:10;
-}
-
-.ending-title{
-    font-family:Cinzel,serif;
-    font-size:clamp(30px,7vw,75px);
-    letter-spacing:8px;
-}
-
-.continued{
-    margin-top:45px;
-    color:#a9162b;
-    letter-spacing:9px;
-    font-size:11px;
-}
-
-.author{
-    margin-top:60px;
-    color:#777;
-    font-size:10px;
-    letter-spacing:3px;
-}
-
-.author strong{
-    display:block;
-    color:#ddd;
-    font-family:Cinzel,serif;
-    font-size:17px;
-    margin-top:10px;
-    letter-spacing:3px;
-}
-
-/* ================= FIRE PARTICLES ================= */
-
-.embers{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    z-index:4;
-    overflow:hidden;
-}
-
-.ember{
-    position:absolute;
-    width:2px;
-    height:2px;
-    background:#ff593d;
-    border-radius:50%;
-    box-shadow:0 0 8px #ff2600;
-    animation:emberFloat linear infinite;
-}
-
-@keyframes emberFloat{
-    from{
-        transform:translateY(110vh);
-        opacity:0;
-    }
-
-    20%{opacity:1}
-
-    to{
-        transform:translateY(-20vh) translateX(80px);
-        opacity:0;
-    }
-}
-
-/* ================= FADE REVEALS ================= */
-
-.fade{
-    opacity:0;
-    transform:translateY(35px);
-    transition:
-        opacity 1.2s ease,
-        transform 1.2s ease;
-}
-
-.fade.visible{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:600px){
-
-    .topbar{
-        padding:0 17px;
-    }
-
-    .brand{
-        font-size:9px;
-        letter-spacing:3px;
-    }
-
-    .chapter-tag{
-        font-size:7px;
-    }
-
-    .hero h1{
-        letter-spacing:7px;
-    }
-
-    .story{
-        padding:100px 0;
-    }
-
-    .story p{
-        font-size:14px;
-        line-height:1.9;
-    }
-
-    .quote{
-        font-size:25px;
-    }
-
-    .phone{
-        min-height:510px;
-    }
-
-}
-
-/* ================= RED FLASH ================= */
-
-.flash{
-    position:fixed;
-    inset:0;
-    z-index:9000;
-    background:rgba(180,0,15,.7);
-    pointer-events:none;
-    opacity:0;
-}
-
-.flash.active{
-    animation:flash .45s ease;
-}
-
-@keyframes flash{
-    0%{opacity:0}
-    20%{opacity:.45}
-    100%{opacity:0}
-}
-
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="loader">
-    <div class="loader-inner">
-        <div class="loader-small">A DIGITAL NOVEL</div>
-        <div class="loader-title">THE HARBOUR</div>
+<!-- LOADING SCREEN -->
+<div id="loader">
+    <div class="loader-content">
+        <span>A DIGITAL NOVEL</span>
+        <h1>THE HARBOUR</h1>
         <div class="loader-line"></div>
+        <small>CHAPTER TWO</small>
     </div>
 </div>
 
-<div class="progress"></div>
+<!-- TOP BAR -->
+<header class="topbar">
+    <div class="logo">THE HARBOUR</div>
+    <div class="chapter">CHAPTER TWO — THE RETURN</div>
+</header>
 
-<div class="topbar">
-    <div class="brand">THE HARBOUR</div>
-    <div class="chapter-tag">CHAPTER TWO — THE RETURN</div>
-</div>
-
-<div class="flash" id="flash"></div>
-
+<!-- READING PROGRESS -->
+<div id="progress"></div>
 
 <!-- =====================================================
      HERO
@@ -780,25 +43,26 @@ body{
 
     <div class="rain"></div>
 
-    <div class="hero-content">
+    <div class="hero-content reveal">
 
-        <div class="chapter-number">
+        <p class="chapter-number">
             CHAPTER TWO
-        </div>
+        </p>
 
         <h1>
             THE<br>
             RETURN
         </h1>
 
-        <div class="hero-sub">
+        <p class="tagline">
             EVERY SECRET LEAVES A TRACE
-        </div>
+        </p>
 
     </div>
 
-    <div class="scroll">
-        BEGIN READING
+    <div class="scroll-indicator">
+        SCROLL TO ENTER
+        <span></span>
     </div>
 
 </section>
@@ -810,11 +74,9 @@ body{
 
 <section class="scene dark">
 
-    <div class="story fade">
+    <article class="story reveal">
 
-        <div class="kicker">
-            TWO WEEKS LATER
-        </div>
+        <p class="kicker">TWO WEEKS LATER</p>
 
         <h2>
             The Harbour<br>
@@ -843,11 +105,11 @@ body{
             But Ryan knew something was wrong.
         </p>
 
-        <div class="quote">
+        <blockquote>
             "The story wasn't over."
-        </div>
+        </blockquote>
 
-    </div>
+    </article>
 
 </section>
 
@@ -856,13 +118,11 @@ body{
      DOCUMENTS
 ===================================================== -->
 
-<section class="scene dark">
+<section class="scene documents">
 
-    <div class="story fade">
+    <article class="story reveal">
 
-        <div class="kicker">
-            THE EVIDENCE
-        </div>
+        <p class="kicker">THE EVIDENCE</p>
 
         <h2>
             Names.<br>
@@ -880,32 +140,31 @@ body{
             One name appeared repeatedly.
         </p>
 
-        <div class="quote">
-            MICHAEL BROOKS.
+        <div class="big-word">
+            MICHAEL<br>
+            BROOKS
         </div>
 
         <p>
             Ryan handed everything to the police.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
 
 <!-- =====================================================
-     HARBOUR
+     TUTICORIN HARBOUR
 ===================================================== -->
 
 <section class="scene harbour">
 
     <div class="rain"></div>
 
-    <div class="story fade center">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            THE NEXT NIGHT
-        </div>
+        <p class="kicker">THE NEXT NIGHT</p>
 
         <h2>
             TUTICORIN<br>
@@ -913,17 +172,17 @@ body{
         </h2>
 
         <p>
-            The police discovered a new shipment scheduled for the
-            following night.
+            The police discovered a new shipment scheduled
+            for the following night.
         </p>
 
         <p>
             Ryan looked at the photograph.
         </p>
 
-        <div class="quote">
+        <blockquote>
             "So they're coming back?"
-        </div>
+        </blockquote>
 
         <p>
             The officer answered quietly.
@@ -933,30 +192,24 @@ body{
             "We don't know who is coming."
         </p>
 
-        <p>
-            Ryan looked toward the dark ocean.
-        </p>
-
-        <div class="quote">
+        <blockquote>
             "I'll be there."
-        </div>
+        </blockquote>
 
-    </div>
+    </article>
 
 </section>
 
 
 <!-- =====================================================
-     THE TRUCK
+     TRUCK
 ===================================================== -->
 
-<section class="scene dark">
+<section class="scene truck">
 
-    <div class="story fade center">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            11:47 PM
-        </div>
+        <p class="kicker">11:47 PM</p>
 
         <h2>
             THE TRUCK
@@ -979,9 +232,9 @@ body{
             Then...
         </p>
 
-        <div class="quote">
+        <blockquote>
             A truck appeared.
-        </div>
+        </blockquote>
 
         <p>
             Its headlights cut through the fog.
@@ -995,7 +248,7 @@ body{
             It entered the harbour.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
@@ -1006,15 +259,11 @@ body{
 
 <section class="scene dark">
 
-    <div class="story fade center">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            THE CONTAINER
-        </div>
+        <p class="kicker">THE CONTAINER</p>
 
-        <h2>
-            EMPTY.
-        </h2>
+        <h2>EMPTY.</h2>
 
         <p>
             The police surrounded the truck.
@@ -1024,9 +273,9 @@ body{
             One officer opened the container.
         </p>
 
-        <div class="quote">
+        <blockquote>
             Nothing.
-        </div>
+        </blockquote>
 
         <p>
             Completely empty.
@@ -1040,7 +289,7 @@ body{
             And then...
         </p>
 
-    </div>
+    </article>
 
 </section>
 
@@ -1049,13 +298,13 @@ body{
      GUNSHOT
 ===================================================== -->
 
-<section class="scene confrontation">
+<section class="scene gunshot">
 
     <div class="rain"></div>
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="fight-text">
+        <div class="impact">
             BANG.
         </div>
 
@@ -1079,7 +328,7 @@ body{
             Ryan turned.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
@@ -1088,44 +337,42 @@ body{
      MICHAEL REVEAL
 ===================================================== -->
 
-<section class="scene reveal">
+<section class="scene michael">
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
+        <p class="kicker">
             THE IMPOSSIBLE
-        </div>
+        </p>
 
-        <div class="reveal-name">
+        <h2 class="character-name">
             MICHAEL<br>
             BROOKS
-        </div>
+        </h2>
 
-        <div class="quote">
+        <blockquote>
             "You really thought you won?"
-        </div>
+        </blockquote>
 
         <p>
             The man everyone believed was dead
             was standing in front of Ryan.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
 
 <!-- =====================================================
-     FIGHT
+     CHAOS
 ===================================================== -->
 
-<section class="scene red">
+<section class="scene chaos">
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            CHAOS
-        </div>
+        <p class="kicker">CHAOS</p>
 
         <h2>
             GUNFIRE.
@@ -1159,7 +406,7 @@ body{
             Ryan attacked.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
@@ -1170,13 +417,9 @@ body{
 
 <section class="scene blood">
 
-    <div class="blood-overlay"></div>
+    <article class="story center reveal">
 
-    <div class="story center fade">
-
-        <div class="kicker">
-            THE END OF MICHAEL
-        </div>
+        <p class="kicker">THE END OF MICHAEL</p>
 
         <h2>
             BANG.
@@ -1194,15 +437,15 @@ body{
             Ryan pulled the trigger.
         </p>
 
-        <div class="quote">
+        <blockquote>
             Michael fell.
-        </div>
+        </blockquote>
 
         <p>
             The harbour became silent again.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
@@ -1211,15 +454,13 @@ body{
      JACK RETURNS
 ===================================================== -->
 
-<section class="scene harbour">
+<section class="scene return">
 
     <div class="rain"></div>
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            THE RETURN
-        </div>
+        <p class="kicker">THE RETURN</p>
 
         <h2>
             TWO<br>
@@ -1242,19 +483,19 @@ body{
             Behind them was a black BMW.
         </p>
 
-        <div class="quote">
+        <blockquote>
             Jack Wilson.
-        </div>
+        </blockquote>
 
         <p>
             And beside him...
         </p>
 
-        <div class="quote">
+        <blockquote>
             Daniel Carter.
-        </div>
+        </blockquote>
 
-    </div>
+    </article>
 
 </section>
 
@@ -1263,13 +504,11 @@ body{
      FINAL FIGHT
 ===================================================== -->
 
-<section class="scene confrontation">
+<section class="scene fight">
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            THE FINAL FIGHT
-        </div>
+        <p class="kicker">THE FINAL FIGHT</p>
 
         <h2>
             NO MORE<br>
@@ -1288,9 +527,9 @@ body{
             He laughed.
         </p>
 
-        <div class="quote">
+        <blockquote>
             "You really thought we were gone?"
-        </div>
+        </blockquote>
 
         <p>
             Ryan raised his gun.
@@ -1300,24 +539,22 @@ body{
             The fight began.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
 
 <!-- =====================================================
-     BOAT
+     OCEAN
 ===================================================== -->
 
 <section class="scene ocean">
 
     <div class="boat-light"></div>
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            AFTER THE BATTLE
-        </div>
+        <p class="kicker">AFTER THE BATTLE</p>
 
         <h2>
             INTO THE<br>
@@ -1344,15 +581,15 @@ body{
             The boat slowly moved away from the harbour.
         </p>
 
-        <div class="quote">
+        <blockquote>
             Ryan watched.
-        </div>
+        </blockquote>
 
         <p>
             He believed it was finally over.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
@@ -1363,11 +600,9 @@ body{
 
 <section class="scene dark">
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            THREE DAYS LATER
-        </div>
+        <p class="kicker">THREE DAYS LATER</p>
 
         <h2>
             THE CALL
@@ -1385,60 +620,46 @@ body{
             His phone suddenly rang.
         </p>
 
-        <div class="quote">
+        <blockquote>
             UNKNOWN NUMBER
-        </div>
+        </blockquote>
 
-    </div>
+    </article>
 
 </section>
 
 
 <!-- =====================================================
-     PHONE
+     PHONE CALL
 ===================================================== -->
 
-<section class="scene call">
-
-    <div class="rain"></div>
+<section class="scene phone-scene">
 
     <div class="phone">
 
-        <div class="phone-top">
+        <div class="phone-label">
             INCOMING CALL
         </div>
 
-        <div class="caller">
+        <div class="caller-image"></div>
 
-            <div class="caller-circle"></div>
+        <h3>UNKNOWN</h3>
 
-            <div class="caller-name">
-                UNKNOWN
-            </div>
-
-            <div class="call-status">
-                CONNECTED
-            </div>
-
-        </div>
+        <small>CONNECTED</small>
 
         <div class="wave">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
         </div>
 
-        <div class="story center" style="padding:0;width:100%;">
-
-            <p>
-                "Miss me?"
-            </p>
-
-        </div>
+        <p>
+            "Miss me?"
+        </p>
 
     </div>
 
@@ -1449,15 +670,13 @@ body{
      JACK ALIVE
 ===================================================== -->
 
-<section class="scene call">
+<section class="scene burning">
 
-    <div class="embers" id="embers"></div>
+    <div class="embers"></div>
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            THE IMPOSSIBLE
-        </div>
+        <p class="kicker">THE IMPOSSIBLE</p>
 
         <h2>
             JACK<br>
@@ -1484,26 +703,24 @@ body{
             Blood covered the trees.
         </p>
 
-        <div class="quote">
+        <blockquote>
             "You made one mistake, Ryan."
-        </div>
+        </blockquote>
 
-    </div>
+    </article>
 
 </section>
 
 
 <!-- =====================================================
-     THE WARNING
+     WARNING
 ===================================================== -->
 
-<section class="scene red">
+<section class="scene warning">
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            JACK WILSON
-        </div>
+        <p class="kicker">JACK WILSON</p>
 
         <h2>
             "WE ARE<br>
@@ -1523,7 +740,7 @@ body{
             The call ended.
         </p>
 
-    </div>
+    </article>
 
 </section>
 
@@ -1532,41 +749,39 @@ body{
      DAVID HARRIS
 ===================================================== -->
 
-<section class="scene final-reveal">
+<section class="scene david">
 
-    <div class="story david fade">
+    <article class="story center reveal">
 
-        <div class="david-small">
+        <p class="kicker">
             THE MAN BEHIND THE SHADOW
-        </div>
+        </p>
 
         <h2>
             DAVID<br>
             HARRIS
         </h2>
 
-        <div class="david-line"></div>
+        <div class="red-line"></div>
 
-        <div class="david-desc">
+        <p class="subtitle">
             EVERY STORY HAS A HIDDEN PLAYER
-        </div>
+        </p>
 
-    </div>
+    </article>
 
 </section>
 
 
 <!-- =====================================================
-     FINAL DIALOGUE
+     FINAL SCENE
 ===================================================== -->
 
-<section class="scene dark">
+<section class="scene final-dialogue">
 
-    <div class="story center fade">
+    <article class="story center reveal">
 
-        <div class="kicker">
-            THE BURNING FOREST
-        </div>
+        <p class="kicker">THE BURNING FOREST</p>
 
         <p>
             Jack stood silently beside Daniel.
@@ -1576,9 +791,9 @@ body{
             Daniel looked at the mysterious man.
         </p>
 
-        <div class="quote">
+        <blockquote>
             "Are you sure he'll come?"
-        </div>
+        </blockquote>
 
         <p>
             The man slowly turned.
@@ -1588,257 +803,61 @@ body{
             His face became visible.
         </p>
 
-        <div class="quote">
+        <blockquote>
             "Ryan will come."
-        </div>
+        </blockquote>
 
         <p>
             Jack looked toward the burning forest.
         </p>
 
-        <div class="quote">
+        <blockquote>
             "And when he does?"
-        </div>
+        </blockquote>
 
         <p>
             David smiled.
         </p>
 
-        <div class="quote">
+        <blockquote>
             "We finish what Michael started."
-        </div>
+        </blockquote>
 
-    </div>
+    </article>
 
 </section>
 
 
 <!-- =====================================================
-     ENDING
+     END
 ===================================================== -->
 
 <section class="scene ending">
 
-    <div class="ending-content">
+    <article>
 
-        <div class="kicker">
-            THE HARBOUR
-        </div>
+        <p class="kicker">THE HARBOUR</p>
 
-        <div class="ending-title">
+        <h2>
             CHAPTER TWO<br>
-            — THE RETURN —
-        </div>
+            <span>THE RETURN</span>
+        </h2>
 
         <div class="continued">
             TO BE CONTINUED...
         </div>
 
         <div class="author">
-            WRITTEN BY
+            <span>WRITTEN BY</span>
             <strong>SABARISH.P</strong>
-            FIRST YEAR IT DEPARTMENT
+            <small>FIRST YEAR IT DEPARTMENT</small>
         </div>
 
-    </div>
+    </article>
 
 </section>
 
-
-<script>
-
-/* =========================================================
-   THE HARBOUR — CHAPTER TWO SCRIPT
-   ========================================================= */
-
-/* ---------- LOADER ---------- */
-
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-
-        document
-            .querySelector(".loader")
-            .classList.add("hide");
-
-    }, 1800);
-
-});
-
-
-/* ---------- SCROLL PROGRESS ---------- */
-
-window.addEventListener("scroll", () => {
-
-    const scrollTop =
-        window.scrollY;
-
-    const height =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    const percentage =
-        (scrollTop / height) * 100;
-
-    document
-        .querySelector(".progress")
-        .style.width =
-        percentage + "%";
-
-});
-
-
-/* ---------- REVEAL ON SCROLL ---------- */
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if(entry.isIntersecting){
-
-                    entry.target
-                        .classList
-                        .add("visible");
-
-                }
-
-            });
-
-        },
-        {
-            threshold:.18
-        }
-    );
-
-
-document
-    .querySelectorAll(".fade")
-    .forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-
-/* ---------- RED FLASH ---------- */
-
-const flash =
-    document.getElementById("flash");
-
-function screenFlash(){
-
-    flash.classList.remove("active");
-
-    void flash.offsetWidth;
-
-    flash.classList.add("active");
-
-}
-
-
-/* ---------- RANDOM CINEMATIC FLASH ---------- */
-
-setInterval(() => {
-
-    if(Math.random() > .82){
-
-        screenFlash();
-
-    }
-
-}, 7000);
-
-
-/* ---------- EMBERS ---------- */
-
-const emberContainer =
-    document.getElementById("embers");
-
-if(emberContainer){
-
-    for(let i = 0; i < 35; i++){
-
-        const ember =
-            document.createElement("span");
-
-        ember.className = "ember";
-
-        ember.style.left =
-            Math.random() * 100 + "%";
-
-        ember.style.animationDuration =
-            (5 + Math.random() * 8) + "s";
-
-        ember.style.animationDelay =
-            Math.random() * 8 + "s";
-
-        ember.style.opacity =
-            Math.random();
-
-        emberContainer.appendChild(ember);
-
-    }
-
-}
-
-
-/* ---------- CINEMATIC PARALLAX ---------- */
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        const scroll =
-            window.scrollY;
-
-        document
-            .querySelectorAll(".hero, .harbour, .call, .final-reveal")
-            .forEach(scene => {
-
-                const rect =
-                    scene.getBoundingClientRect();
-
-                if(
-                    rect.top < window.innerHeight &&
-                    rect.bottom > 0
-                ){
-
-                    const offset =
-                        (window.innerHeight -
-                        rect.top) * 0.025;
-
-                    scene.style.backgroundPosition =
-                        `center ${50 + offset}%`;
-
-                }
-
-            });
-
-    }
-);
-
-
-/* ---------- KEYBOARD CINEMATIC MODE ---------- */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if(event.key === "Escape"){
-
-            window.scrollTo({
-                top:0,
-                behavior:"smooth"
-            });
-
-        }
-
-    }
-);
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
