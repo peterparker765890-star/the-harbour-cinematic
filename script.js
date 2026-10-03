@@ -1,215 +1,239 @@
-const loader = document.getElementById("loader");
-const progress = document.getElementById("progress");
-const startReading = document.getElementById("startReading");
+/* =====================================================
+   THE HARBOUR — CHAPTER TWO
+   CINEMATIC SCRIPT
+===================================================== */
 
 
-// LOADER
+/* ================= LOADER ================= */
 
 window.addEventListener("load", () => {
 
     setTimeout(() => {
-        loader.classList.add("hide");
-    }, 1200);
+
+        const loader =
+            document.getElementById("loader");
+
+        if(loader){
+            loader.classList.add("hide");
+        }
+
+    }, 1800);
 
 });
 
 
-// ENTER STORY
-
-startReading.addEventListener("click", () => {
-
-    document.querySelector(".cinematic-intro")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-});
-
-
-// READING PROGRESS
+/* ================= READING PROGRESS ================= */
 
 window.addEventListener("scroll", () => {
 
-    const scrollTop = window.scrollY;
+    const scrollTop =
+        window.scrollY;
 
-    const height =
+    const documentHeight =
         document.documentElement.scrollHeight -
         window.innerHeight;
 
     const percentage =
-        height > 0
-            ? (scrollTop / height) * 100
+        documentHeight > 0
+            ? (scrollTop / documentHeight) * 100
             : 0;
 
-    progress.style.width = percentage + "%";
+    const progress =
+        document.getElementById("progress");
 
-});
-
-
-// REVEAL ELEMENTS
-
-const revealItems = document.querySelectorAll(
-    ".story-card, .character-content, .delivery-content, .ship-content, .blood-content, .fire-content, .horror-content"
-);
-
-const observer = new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.15
+    if(progress){
+        progress.style.width =
+            percentage + "%";
     }
-);
-
-revealItems.forEach(item => observer.observe(item));
-
-
-// CINEMATIC PARALLAX
-
-window.addEventListener("scroll", () => {
-
-    const scroll = window.scrollY;
-
-    document.querySelectorAll(
-        ".scene-image, .character-background, .ship-background, .gold-image, .ryan-background, .blood-background, .fire-background"
-    ).forEach((element, index) => {
-
-        const speed = 0.015 + (index % 3) * 0.006;
-
-        element.style.transform =
-            `translate3d(0, ${scroll * speed}px, 0) scale(1.06)`;
-
-    });
 
 });
 
 
-// CHAPTER INDICATOR
+/* ================= SCROLL REVEAL ================= */
 
-const sections = [
-    {
-        selector: ".cinematic-intro",
-        name: "CHAPTER ONE"
-    },
-    {
-        selector: ".harbour-scene",
-        name: "THE HARBOUR"
-    },
-    {
-        selector: ".drugs-scene",
-        name: "THE CONTRABAND"
-    },
-    {
-        selector: ".gold-scene",
-        name: "THE GOLD"
-    },
-    {
-        selector: ".delivery-section",
-        name: "THE WRONG DELIVERY"
-    },
-    {
-        selector: ".blood-scene",
-        name: "THE FINAL CONFRONTATION"
-    },
-    {
-        selector: ".fire-scene",
-        name: "THE CALL"
-    }
-];
+const revealObserver =
+    new IntersectionObserver(
+        (entries) => {
 
-const chapterIndicator =
-    document.querySelector(".chapter-indicator");
+            entries.forEach((entry) => {
 
-window.addEventListener("scroll", () => {
+                if(entry.isIntersecting){
 
-    let current = "CHAPTER ONE";
-
-    sections.forEach(section => {
-
-        const element =
-            document.querySelector(section.selector);
-
-        if (!element) return;
-
-        const rect = element.getBoundingClientRect();
-
-        if (rect.top <= window.innerHeight * 0.45) {
-            current = section.name;
-        }
-
-    });
-
-    chapterIndicator.textContent = current;
-
-});
-
-
-// MOUSE CINEMATIC MOVEMENT
-
-document.addEventListener("mousemove", event => {
-
-    const x =
-        (event.clientX / window.innerWidth - 0.5) * 2;
-
-    const y =
-        (event.clientY / window.innerHeight - 0.5) * 2;
-
-    document.querySelectorAll(
-        ".scene-image, .ship-background, .gold-image"
-    ).forEach(element => {
-
-        element.style.marginLeft = `${x * 8}px`;
-        element.style.marginTop = `${y * 8}px`;
-
-    });
-
-});
-
-
-// BLOOD FLASH
-
-const bloodScene =
-    document.querySelector(".blood-scene");
-
-if (bloodScene) {
-
-    const bloodObserver =
-        new IntersectionObserver(entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    document.body.classList.add(
-                        "blood-enter"
-                    );
-
-                    setTimeout(() => {
-
-                        document.body.classList.remove(
-                            "blood-enter"
-                        );
-
-                    }, 500);
+                    entry.target.classList.add("visible");
 
                 }
 
             });
 
-        }, {
-            threshold: .5
-        });
+        },
+        {
+            threshold:0.15
+        }
+    );
 
-    bloodObserver.observe(bloodScene);
+
+document
+    .querySelectorAll(".reveal")
+    .forEach((element) => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+/* ================= EMBERS ================= */
+
+const emberContainer =
+    document.querySelector(".embers");
+
+if(emberContainer){
+
+    for(let i = 0; i < 45; i++){
+
+        const ember =
+            document.createElement("span");
+
+        ember.className = "ember";
+
+        ember.style.left =
+            Math.random() * 100 + "%";
+
+        ember.style.animationDuration =
+            (4 + Math.random() * 7) + "s";
+
+        ember.style.animationDelay =
+            Math.random() * 8 + "s";
+
+        ember.style.opacity =
+            Math.random();
+
+        emberContainer.appendChild(ember);
+
+    }
 
 }
+
+
+/* ================= CINEMATIC PARALLAX ================= */
+
+window.addEventListener("scroll", () => {
+
+    const scenes =
+        document.querySelectorAll(".scene");
+
+    scenes.forEach((scene) => {
+
+        const rect =
+            scene.getBoundingClientRect();
+
+        if(
+            rect.top < window.innerHeight &&
+            rect.bottom > 0
+        ){
+
+            const distance =
+                window.innerHeight / 2 -
+                (rect.top + rect.height / 2);
+
+            const movement =
+                distance * 0.015;
+
+            const background =
+                scene.querySelector(
+                    "::before"
+                );
+
+            scene.style.setProperty(
+                "--parallax",
+                movement + "px"
+            );
+
+        }
+
+    });
+
+});
+
+
+/* ================= KEYBOARD ================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        /* HOME */
+
+        if(event.key === "Home"){
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        }
+
+        /* END */
+
+        if(event.key === "End"){
+
+            window.scrollTo({
+                top:document.body.scrollHeight,
+                behavior:"smooth"
+            });
+
+        }
+
+    }
+);
+
+
+/* ================= IMAGE PRELOADING ================= */
+
+const cinematicImages = [
+
+    "assets/ch2-ocean.jpg",
+    "assets/ch2-harbour.jpg",
+    "assets/ch2-truck.jpg",
+    "assets/ch2-confrontation.jpg",
+    "assets/ch2-michael.jpg",
+    "assets/ch2-blood.jpg",
+    "assets/ch2-ocean-night.jpg",
+    "assets/ch2-burning-forest.jpg",
+    "assets/david-harris.jpg",
+    "assets/jack.jpg"
+
+];
+
+cinematicImages.forEach((src) => {
+
+    const image =
+        new Image();
+
+    image.src = src;
+
+});
+
+
+/* ================= PAGE TITLE EFFECT ================= */
+
+const originalTitle =
+    document.title;
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if(document.hidden){
+
+            document.title =
+                "Come back to THE HARBOUR...";
+
+        }else{
+
+            document.title =
+                originalTitle;
+
+        }
+
+    }
+);
